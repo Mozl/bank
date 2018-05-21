@@ -10,12 +10,10 @@ class BankAccount
 
   def deposit(amount)
     @account << amount
-    puts "£#{amount} has been added to your account."
   end
 
   def withdraw(amount)
     @account << amount
-    puts "£#{amount} has been withdrawn from your account."
   end
 
   def balance
