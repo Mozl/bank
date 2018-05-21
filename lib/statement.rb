@@ -2,8 +2,11 @@ require_relative 'account'
 
 class Statement
 
+  attr_accessor :transactions
+
   def initialize(account = BankAccount.new)
     @bank_account = account
+    @transactions = []
   end
 
   def print_balance
@@ -21,4 +24,9 @@ class Statement
   def print_date
     Time.new.strftime("%d-%m-%Y")
   end
+
+  def transaction
+  end
+
+
 end

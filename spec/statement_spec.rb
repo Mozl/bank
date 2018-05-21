@@ -18,7 +18,16 @@ describe Statement do
 
   it 'prints date' do
     statement = Statement.new
-    time = Time.new.strftime("%d-%m-%Y")
-    expect(statement.print_date).to eq(time)
+    date = Time.new.strftime("%d-%m-%Y")
+    expect(statement.print_date).to eq(date)
+  end
+
+  it 'prints date, credit, debit, balance' do
+    statement = Statement.new
+    acc = BankAccount.new
+    date = Time.new.strftime("%d-%m-%Y")
+    credit = acc.deposit(10)
+    balance = acc.balance
+    expect(statement.transaction).to eq "#{date} || #{credit} || || #{balance}"
   end
 end
