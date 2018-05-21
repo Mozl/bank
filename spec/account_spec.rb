@@ -1,8 +1,9 @@
 require './lib/account.rb'
 
-describe Account do
+describe BankAccount do
     it 'adds money to an account' do
-        account.deposit(5)
-        expect(balance).to eq(10)
+        account = BankAccount.new
+        account.deposit(10)
+        expect(account.balance).to eq(10)
     end
 end
