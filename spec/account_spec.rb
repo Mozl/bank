@@ -10,7 +10,7 @@ describe BankAccount do
     it 'withdraws money from an account' do
         account = BankAccount.new
         account.deposit(100)
-        account.withdraw(5)
+        account.withdraw(-5)
         expect(account.balance).to eq(95)
     end
 end
