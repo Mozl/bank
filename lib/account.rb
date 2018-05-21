@@ -2,6 +2,7 @@ class BankAccount
 
   attr_reader :account, :date
 
+
   def initialize
     @account = []
     @date = Time.new.strftime("%d-%m-%Y")
