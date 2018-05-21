@@ -17,4 +17,8 @@ class Statement
   def print_withdraw
     "debit #{@bank_account.withdraw(-5).join(",")} GBP"
   end
+
+  def print_date
+    Time.new.strftime("%d-%m-%Y")
+  end
 end

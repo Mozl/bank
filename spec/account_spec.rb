@@ -13,10 +13,4 @@ describe BankAccount do
     account.withdraw(-5)
     expect(account.balance).to eq(95)
   end
-
-  it 'tests the date' do
-    time = Time.new
-    account = BankAccount.new
-    expect(account.date).to eq (time.strftime("%d-%m-%Y"))
-  end
 end

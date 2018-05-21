@@ -1,11 +1,10 @@
 class BankAccount
 
-  attr_reader :account, :date
+  attr_reader :account
 
 
   def initialize
     @account = []
-    @date = Time.new.strftime("%d-%m-%Y")
   end
 
   def deposit(amount)
