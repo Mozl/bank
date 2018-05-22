@@ -26,7 +26,11 @@ class Statement
   end
 
   def credit_transaction
-    "#{print_date} || #{print_deposit} || || #{print_balance}"
+    @transactions << ["#{print_date} || #{print_deposit} || || #{print_balance}"]
+  end
+
+  def debit_transaction
+    @transactions << ["#{print_date} || || #{print_withdraw} || #{print_balance}"]
   end
 
 end

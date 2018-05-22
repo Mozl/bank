@@ -8,6 +8,8 @@ describe Statement do
 
   it 'prints credit' do
     statement = Statement.new
+    acc = BankAccount.new
+    acc.deposit(5)
     expect(statement.print_deposit).to eq "5"
   end
 
@@ -22,9 +24,23 @@ describe Statement do
     expect(statement.print_date).to eq(date)
   end
 
-  it 'prints date, credit, balance for one transaction' do
+  it 'prints credit transaction' do
     statement = Statement.new
     acc = BankAccount.new
-    expect(statement.credit_transaction).to eq "#{subject.print_date} || #{subject.print_deposit} || || #{subject.print_balance}"
+    expect(statement.credit_transaction).to eq ([["#{subject.print_date} || #{subject.print_deposit} || || #{subject.print_balance}"]])
+  end
+
+  it 'prints debit transaction' do
+    statement = Statement.new
+    expect(statement.debit_transaction).to eq ([["#{subject.print_date} || || -5 || -5"]])
+  end
+
+  it 'checks transactions array' do
+    statement = Statement.new
+    acc = BankAccount.new
+    acc.deposit(5)
+    statement.credit_transaction
+    statement.debit_transaction
+    expect(statement.transactions).to include(["#{subject.print_date} || #{subject.print_deposit} || || #{subject.print_balance}"], ["#{subject.print_date} || || #{subject.print_withdraw} || #{subject.print_balance}"])
   end
 end
