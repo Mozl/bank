@@ -3,17 +3,17 @@ require 'statement'
 describe Statement do
   it 'prints balance' do
     statement = Statement.new
-    expect(statement.print_balance).to eq "balance 0 GBP"
+    expect(statement.print_balance).to eq "0"
   end
 
   it 'prints credit' do
     statement = Statement.new
-    expect(statement.print_deposit).to eq "credit 5 GBP"
+    expect(statement.print_deposit).to eq "5"
   end
 
   it 'prints debit' do
     statement = Statement.new
-    expect(statement.print_withdraw).to eq "debit -5 GBP"
+    expect(statement.print_withdraw).to eq "-5"
   end
 
   it 'prints date' do
@@ -22,12 +22,9 @@ describe Statement do
     expect(statement.print_date).to eq(date)
   end
 
-  it 'prints date, credit, debit, balance' do
+  it 'prints date, credit, balance for one transaction' do
     statement = Statement.new
     acc = BankAccount.new
-    date = Time.new.strftime("%d-%m-%Y")
-    credit = acc.deposit(10)
-    balance = acc.balance
-    expect(statement.transaction).to eq "#{date} || #{credit} || || #{balance}"
+    expect(statement.credit_transaction).to eq "#{subject.print_date} || #{subject.print_deposit} || || #{subject.print_balance}"
   end
 end

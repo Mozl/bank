@@ -10,23 +10,23 @@ class Statement
   end
 
   def print_balance
-    "balance #{@bank_account.balance} GBP"
+    "#{@bank_account.balance}"
   end
 
   def print_deposit
-    "credit #{@bank_account.deposit(5).join(",")} GBP"
+    "#{@bank_account.deposit(5).join(",")}"
   end
 
   def print_withdraw
-    "debit #{@bank_account.withdraw(-5).join(",")} GBP"
+    "#{@bank_account.withdraw(-5).join(",")}"
   end
 
   def print_date
     Time.new.strftime("%d-%m-%Y")
   end
 
-  def transaction
+  def credit_transaction
+    "#{print_date} || #{print_deposit} || || #{print_balance}"
   end
-
 
 end
